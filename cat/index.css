@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.cat{
+    width: 117px;
+    height: 201px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #000;
+    transform: translate3d(-50%,-50%,0);
+}
+.cat-body{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maoshenti.ad6177be5deba54a83a99ef58fe80047.png) no-repeat;
+    z-index: 100;
+}
+.cat-tail{
+    width: 64px;
+    height: 194px;
+    position: absolute;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maowei.cebc9c6d99173d07009465c700b0eb21.png) no-repeat;
+    left: -10px;
+    top: -176px;
+    animation: cat-tail-rotate 3s cubic-bezier(.445,.05,.55,.95) infinite;
+    z-index: 10;
+}
+@keyframes cat-tail-rotate {
+    0%{
+        transform: rotate(-5deg);
+        transform-origin: bottom;
+    }
+    50%{
+        transform: rotate(0deg);
+        transform-origin: bottom;
+    }
+    100%{
+        transform: rotate(-5deg);
+        transform-origin: bottom;
+    }
+}
+.cat-foot{
+    width: 34px;
+    height: 81px;
+    position: absolute;
+    top: 190px;
+    left: 62px;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maozhua.35cbb00fc5856cf230d6a4e60cfdfc55.png) no-repeat;
+    z-index: 10;
+    animation: cat-foot-rotate 3s cubic-bezier(.445,.05,.55,.95) infinite;
+}
+@keyframes cat-foot-rotate {
+    0%{
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+    50%{
+        transform: rotate(-11deg);
+        transform-origin: top;
+    }
+    100%{
+        transform: rotate(0deg);
+        transform-origin: top;
+    }
+}
+.cat-eye{
+    width: 3px;
+    height: 3px;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maoyan1.df1051d529797e9a904ee2a02ff2d57c.png) no-repeat;
+    position: absolute;
+    z-index: 150;
+    animation: cat-eye-flash 4s linear infinite;
+}
+@keyframes cat-eye-flash{
+    0%{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1);
+    }
+    31%,37.6%{
+        transform: scale(0.7);
+    }
+    32%,38.6%{
+        transform: scale(0.4);
+    }
+    33%,39.6%{
+        transform: scale(0.1);
+    }
+    33.3%,40.9%{
+        transform: scale(0); 
+    }
+    33.6%,41.2%{
+        transform: scale(0.1); 
+    }
+    34.6%,42.2%{
+        transform: scale(0.4);
+    }
+    35.6%,43.2%{
+        transform: scale(0.7);
+    }
+    36.6%,44.2%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.cat-eye-l{
+    top: 180px;
+    left: 80px;
+}
+.cat-eye-r{
+    top: 187px;
+    left: 97px;
+}
+.cat-mouth{
+    width: 4px;
+    height: 3px;
+    position: absolute;
+    top: 190px;
+    left: 85px;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maozui.719c2ceb21571a176676229d3dfc7416.png) no-repeat;
+    z-index: 150;
+}
