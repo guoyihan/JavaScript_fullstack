@@ -18,7 +18,7 @@
    -webkit-overflow-scrolling: touch;
    html font-size: 100px
 
--  o0.css
+-  oo .css
    .quick-login .quick-type
    stylus 嵌套
    与.quick-type 不容易冲突 
