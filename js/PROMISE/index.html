@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es6 解决异步
+        var name = ''
+        function test() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('猛哥')
+                    name= '猛哥'
+                    resolve('ok')
+                    // reject('error')
+                }, 500);  
+            })
+        }
+        function xq() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(name + '相亲')
+                    resolve('相亲成功')
+                }, 1000); 
+            })
+            
+        }
+        function marry() {
+            console.log(name + '结婚了!')
+        }
+        // test()                             Promise.then
+        //     .then(xq)
+        //     .then(marry)
+
+
+        // Promise.all([test(), xq()]).then((value) => {                 Promise.all     不管顺序
+        //     console.log(value, '--------------------')
+        //     marry()
+        // })
+
+        Promise.race([test(), xq()]).then((value) => {     //     Promise.race   对于参数选择效率最快的执行,剩下的就不执行
+        console.log(value, '--------------------')
+            marry()
+        })
+
+    </script>
+</body>
+</html>
