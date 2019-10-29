@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="test">
+        <div class="msg">{{test}}</div>
+
+        <div class="wrap">
+            <div class="wrap1" v-show="deng">好帅</div>       
+            <div class="wrap2">帅吗</div>                      <!-- v-show 和 v-if 效果差不多,在html中保留拓扑结构只不过设置为display: none -->
+            <!-- <div class="wrap1" v-if="deng">好帅</div>
+            <div class="wrap2" v-else>帅吗</div>             不保留拓扑结构             -->
+
+
+            <!-- <div class="wrap1" >好帅</div>        -->
+            <div class="wrap2" v-on:click="handle">帅吗</div>
+            <div class="wrap2" @click="handle">帅吗</div>    <!--v-on:click  可以简写成 @click -->
+        </div>
+
+        <div class="wrap">
+            <ul>
+                <li v-for="list in newsList">{{list.title}}--{{list.data}}</li>
+            </ul>
+        </div>
+
+        <div class="wrap">
+            <div class="content" v-html="content"></div>  <!-- v-html能解析html标签 -->
+            <div class="content" v-text="content"></div>
+            <!-- <div class="content">{{content}}</div> -->
+        </div>
+
+        <div class="wrap">
+            <div class="className" v-bind:class="isActive ? 'active' : ''">v-bind</div>          <!-- v-bind:class 添加类名    v-bind 用来绑定属性,  v:on  用来绑定事件 -->
+            <!-- <div class="wn" :class="className">蜗牛</div> -->
+            <div class="wn" :class="{classssss:good}">蜗牛</div>       <!-- 是否添加这个classssss类名看good的布尔值 -->
+            <div class="wn" :class="classA">蜗牛</div>    
+            <div class="wn" :class="classB">蜗牛</div>
+        </div>
+        
+    </div>
+
+
+
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data (){
+                return {
+                    message: 'hello world',
+                    test: '',
+                    deng: false,
+                    newsList: [
+                        {title: '全国各地的梯子遭到我国长城防火墙的禁用', date:'2019/5/31'},
+                        {title: '韩国瑜：准备承担2020年重担，让鬼混的民进党下台', date:'2019/6/1'},
+                        {title: '冠心病“救命药”单片涨价近11倍 药企：换了包装', date:'2019/6/2'},
+                        {title: '长春一天集齐雷电冰雹暴雨：有路段积水漂车，部分航班取消', date:'2019/6/3'}
+                    ],
+                    content: '<p>我爱你中国</p>',
+                    isActive: true,
+                    className: 'gyh',
+                    good: false,
+                    classA: 'wnnnn',
+                    classB: 'wwwww'
+                }
+            },
+            methods: {
+                handle() {
+                    console.log('帅')
+                },
+            }
+            // 八个生命周期函数
+            // created() {
+            //     console.log('created')
+            // },
+            // beforeCreate() {
+            //     console.log('beforeCreate')
+            // },
+            // mounted() {
+            //     console.log('mounted')
+            // },
+            // beforeMount() {
+            //     console.log('beforeMounte')
+            // },
+            // updated() {
+            //     console.log('created')
+            // },
+            // beforeUpdate() {
+            //     console.log('beforeUpdate')
+            // },
+            // destroyed() {
+            //     console.log('destroyed')
+            // },
+            // beforeDestroye() {
+            //     console.log('beforeDestroye')
+            // }
+
+        })    
+    </script>
+</body>
+</html>
