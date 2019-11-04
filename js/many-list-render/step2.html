@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="container"></ul>
+    <script>
+        const ul = document.getElementById('container')
+        let total = 100000
+        let once = 20
+        let index = 0
+        let end = Date.now()
+        loop(total) 
+        function loop(total) {                //每次渲染20条
+            if (total <= 0) {
+                const end1 = Date.now() 
+                console.log(end1 - end)  
+                return false
+            }                      
+            setTimeout(() => {   
+                for(let i  = 0; i < once; i++) {
+                const liNode = document.createElement('li');
+                liNode.innerText = Math.random() * 100000;
+                ul.appendChild(liNode);
+            }
+            // 递归
+            loop(total - once);
+
+            }, 0);
+        }
+    
+
+    </script>
+</body>
+</html>
