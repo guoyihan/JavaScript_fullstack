@@ -17,7 +17,9 @@
           </li>
         </ul>
       </div>
-      <div class="foods-wrapper"></div>
+      <div class="foods-wrapper">
+        
+      </div>
     </div>
   </div>
 </template>
