@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Foo() {
+        //     this.a = 1
+        //     this.b = 2
+        //     return {c: 3}
+        // }
+        // let f1 = new Foo()
+        // console.log(f1)
+
+        let globalIns;
+        function Notifi() {
+            if (globalIns) {        //如果实例已经有了 就不会生成新的实例 从而达成单例模式
+                return globalIns
+            }
+            globalIns = this    
+        }
+        let ins1 = new Notifi()
+        let ins2 = new Notifi()
+        //无论 new 多少次 只有一个实例
+
+        console.log( ins1 === ins2 )   // ------> true
+    </script>
+</body>
+</html>
