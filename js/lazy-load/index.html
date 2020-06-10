@@ -33,7 +33,8 @@
         function lazyload() {
             var eles = document.querySelectorAll('img[data-original][lazyload]')
             Array.prototype.forEach.call(eles, function(item, index) {
-                var rect
+                var rect 
+                console.log(item.dataset.original)
                 if (!item.dataset.original) return
                 rect = item.getBoundingClientRect()  //返回元素的大小及其相对于视口的位置
                 if (rect.bottom >= 0 && rect.top < viewHeight){
@@ -49,7 +50,7 @@
                 }
             })
         }
-        lazyload()
+        // lazyload()
         document.addEventListener('scroll', lazyload)
     </script>
 </body>
