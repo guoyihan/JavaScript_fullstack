@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body> 
+    <div id="example"></div>
+
+    <script type="text/babel">  //jsx语法生效
+        class HelloMessage extends React.Component {
+            render() {
+                return <h1>Hello {this.props.name}</h1>
+
+            }
+        }
+        // react的组件第一个字母必须为大写
+        ReactDOM.render(  //recat组件的使用就是插入普通的html标签一样,插入到网页中
+        //  组件类只能包含一个顶层标签,不然会报错
+            // <h1>
+            //     <HelloMessage name="猛哥"/>
+            // </h1>
+            <HelloMessage name="猛哥"/>,
+            
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>

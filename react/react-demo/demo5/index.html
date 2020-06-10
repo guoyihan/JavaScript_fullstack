@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body> 
+    <div id="example"></div>
+
+    <!-- this.props.children -->
+    <!--  -->
+    <script type="text/babel">  //jsx语法生效
+        class NotesList extends React.Component {
+            render () {
+                return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children, function (child) {
+                                return <li>{child}</li>
+                            })
+                        }
+                    </ol>
+                )
+            }
+        }  
+
+        // this.props对象的属性与组件的属性是一一对应的
+        // 但是this.props.children属性十一i个例外,他表示组件的所有子节点
+        // this.props.children的值有三种情况: 1.若无子节点则为undefined 2.有一个则为object 3.多个则是array
+        ReactDOM.render (
+            // 组件被调用时内部在插入html,这个内容被当作参数
+            <NotesList>
+                <span>hello</span>
+                <span>world</span>
+            </NotesList>,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>
