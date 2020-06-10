@@ -2,7 +2,7 @@ const http = require('http')
 const fs = require('fs')
 const urlModule = require('url')
 const nodemailer = require('nodemailer')
-let code = '猛哥nb';
+let code = 'nb';
 //  /register 展示 一个注册的html
 //  注册成功之后 展示 一个成功的html
 http.createServer((req, res) => {
