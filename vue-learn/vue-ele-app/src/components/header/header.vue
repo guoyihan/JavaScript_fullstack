@@ -107,7 +107,6 @@ export default {
       vertical-align top
       img
         border-radius 2px
-
     .content
       display inline-block
       font-size 14px
@@ -122,7 +121,6 @@ export default {
           background-size 30px 18px
           background-repeat no-repeat
           vertical-align middle
-
         .name
           vertical-align middle
           margin-left 6px

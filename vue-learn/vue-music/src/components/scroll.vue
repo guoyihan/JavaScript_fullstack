@@ -1,6 +1,6 @@
 <template>
   <div ref="wrapper">
-      <slot></slot>
+    <slot></slot>
   </div>
 </template>
 
@@ -9,9 +9,10 @@ import BScroll from 'better-scroll'
 
 const DIRECTION_H = 'horizontal'
 const DIRECTION_V = 'vertical'
+
 export default {
-    name: 'scroll',
-    props: {
+  name: 'scroll',
+  props: {
     /**
       * 1 滚动的时候会派发scroll事件，会节流。
       * 2 滚动的时候实时派发scroll事件，不会节流。
@@ -72,43 +73,80 @@ export default {
       type: String,
       default: DIRECTION_V
     }
-    },
-    methods: {
-        _initScroll () {
-            if (this.$refs.wrapper) {
-                return
-            }
-            this.Scroll = new BScroll(this.$refs.wrapper, {
-                click: this.click,
-                probeType: this.probeType,
-                eventPassthrough: this.direction === DIRECTION_V ? DIRECTION_H : DIRECTION_V
-            })
+  },
+  mounted () {
+    setTimeout(() => {
+      this._initScroll()
+    }, 20)
+  },
+  methods: {
+    _initScroll () {
+      if (!this.$refs.wrapper) {
+        return
+      }
+      this.scroll = new BScroll(this.$refs.wrapper, {
+        click: this.click,
+        probeType: this.probeType,
+        eventPassthrough: this.direction === DIRECTION_V ? DIRECTION_H : DIRECTION_V
+      })
 
-            if (this.listenScroll) {
-                this.scroll.on('scroll', (pos) => {
-                    this.$emit('scroll', pos)
-                })
-            }
-        },
-        refresh() {
-            this.scroll && this.scroll.refresh()
-            // if (this.scroll) {
-            //     his.scroll.refresh()
-            // }
-        }
+      if (this.listenScroll) {
+        this.scroll.on('scroll', (pos) => {
+          this.$emit('scroll', pos)
+        })
+      }
+
+      // 派发上拉加载更多
+      if (this.pullup) {
+        this.scroll.on('scrollEnd', () => {
+          if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+            this.$emit('scrollToEnd')
+          }
+        })
+      }
+      // 派发下啦刷新
+      if (this.pulldown) {
+        this.scroll.on('touchend', (pos) => {
+          if (pos.y > 50) {
+            this.$emit('pulldown')
+          }
+        })
+      }
+      // 是否派发列表滚动开始事件
+      if (this.beforeScroll) {
+        this.scroll.on('beforeScrollStart', () => {
+          this.$emit('beforeScroll')
+        })
+      }
     },
-    mounted() {
-        setTimeout(() => {
-            this._initScroll()
-        }, 20)
+    disable() {
+      // 代理better-scroll的disable方法
+      this.scroll && this.scroll.disable()
     },
-    watch: {
-        data () {  //监听数据变化, 延时XX时间后刷新better-scroll的效果, 保证滚动效果的正常
-            setTimeout(() => {
-                this.refresh()
-            }, this.refreshDelay)
-        }
+    enable() {
+      // 代理better-scroll的enable方法
+      this.scroll && this.scroll.enable()
+    },
+    refresh() {
+      // 代理better-scroll的refresh方法
+      this.scroll && this.scroll.refresh()
+    },
+    scrollTo() {
+      // 代理better-scroll的scrollTo方法
+      this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
+    },
+    scrollToElement() {
+      // 代理better-scroll的scrollToElement方法
+      this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
     }
+  },
+  watch: {
+    data () { //监听数据变化，延时xx时间后刷新better-scroll的效果,保证滚动效果正常
+      setTimeout(() => {
+        this.refresh()
+      }, this.refreshDelay)
+    }
+  }
 }
 </script>
 

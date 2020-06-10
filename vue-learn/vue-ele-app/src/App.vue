@@ -13,12 +13,13 @@
         <router-link to="/seller">商家</router-link>
       </div>
     </div>
-    <router-view/>
+    <router-view :seller="seller"/>
   </div>
 </template>
 
 <script>
 import header from '@/components/header/header.vue'
+
 export default {
   name: 'App',
   data () {
@@ -54,11 +55,11 @@ export default {
     flex 1
     text-align center
     a
-      text-decoration none 
+      text-decoration none
       display block
       font-size 14px
       color rgb(77, 85, 93)
-      -webkit-tap-highlight-color rgba(0, 0, 0, 0)  
+      -webkit-tap-highlight-color rgba(0, 0, 0, 0)
       &.router-link-active
         color rgb(240, 20, 20)
 </style>

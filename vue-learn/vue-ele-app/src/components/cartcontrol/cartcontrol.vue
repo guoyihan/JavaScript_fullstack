@@ -24,7 +24,7 @@ export default {// 接收父组件给的数据
       } else {
         this.food.count++
       }
-      this.$emit('add', event.target)// vue的发散器//发散一个add 父组件接受到会计算点了多次加号
+      this.$emit('add', event.target)// vue的发散器//发散一个add方法 父组件接受到会计算点了多次加号
     },
     decreaseCart () {
       if (this.food.count) {

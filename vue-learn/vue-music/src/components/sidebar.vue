@@ -16,7 +16,7 @@
             </router-link>
           </li>
           <li @click="_hidebar">
-            <router-link to ="" @click="_hidebar">
+            <router-link to="" @click="_hidebar">
               <i class="icon">&#xe631;</i>
               <span>音效调整</span>
             </router-link>
@@ -57,17 +57,18 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
+
     }
-  },
-  computed: {
-      ...mapGetters ([
-          'showSidebar'
-      ])
   },
   methods: {
     _hidebar () {
-      this.$store.dispatch ('setShowSidebar', false) 
+      this.$store.dispatch('setShowSidebar', false)
     }
+  },
+  computed: {
+    ...mapGetters([
+      'showSidebar'
+    ])
   }
 }
 </script>
@@ -82,7 +83,7 @@ export default {
     top 0
     left px2rem(-400px)
     transform translateZ(0)
-    opacity 1
+    opacity 0
     width px2rem(350px)
     z-index 1002
     height 100%
