@@ -5,7 +5,7 @@ const withMouse = (Component) => {
         state = { x: 0, y: 0}
         
 
-        handleMouseMove(e) {
+        handleMouseMove = (e) => {
             this.setState({
                 x: e.clientX,
                 y: e.clientY
@@ -16,7 +16,7 @@ const withMouse = (Component) => {
         render() {
             return (
                 <div style={{height: '100vh'}} onMouseMove={this.handleMouseMove}> 
-                    <Component {...this.props}/>
+                    <Component {...this.props} mouse={this.state}/>
                 </div>
             )
         }
