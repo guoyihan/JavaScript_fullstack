@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import
 
 // Hoc 高阶组件
 function HOC(WrappedCopmponent) {
@@ -12,6 +11,7 @@ function HOC(WrappedCopmponent) {
         }
 
         onChange = (event) => {
+            // this.setState 在这里!!!!是异步的
             this.setState({
                 name: event.target.value        
             })
