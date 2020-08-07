@@ -24,3 +24,5 @@
 # Redux中发送异步请求获取数据
 
 # Redux-thunk 实现ajax数据请求
+
+# 到底什么是Redux 中间件
