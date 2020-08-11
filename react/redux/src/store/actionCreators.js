@@ -1,4 +1,4 @@
-import {CHANG_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION} from './actionTypes'
+import {CHANG_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION, GET_INIT_LIST} from './actionTypes'
 import axios from 'axios'
 
 
@@ -21,16 +21,20 @@ export const initListAction = (data) => ({
     data
 }) 
 
+export const getInitList = (data) => ({
+    type: GET_INIT_LIST
+}) 
 
-export const getTodoList = () => {
-    return (dispatch) => {
-        axios.get('http://musicapi.leanapp.cn/comment/music?id=186016&limit=1').then((res) => {
-            // console.log(res)
-            const data = res.data
-            const action = initListAction(Object.keys(data.hotComments[0]))
-            // store.dispatch(action)
-            console.log(action)
-            dispatch(action)
-        })
-    }
-}
+// redux-thunk
+// export const getTodoList = () => {
+//     return (dispatch) => {
+//         axios.get('http://musicapi.leanapp.cn/comment/music?id=186016&limit=1').then((res) => {
+//             // console.log(res)
+//             const data = res.data
+//             const action = initListAction(Object.keys(data.hotComments[0]))
+//             // store.dispatch(action)
+//             console.log(action)
+//             dispatch(action)
+//         })
+//     }
+// }

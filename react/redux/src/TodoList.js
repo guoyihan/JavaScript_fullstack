@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css'
 import store from './store/index.js'
 // import {CHANG_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM} from './store/actionTypes'
-import { getTodoList, getInputChangeAction, getAddItemAction, getDeleteItemAction } from './store/actionCreators'
+import { getInitList, getInputChangeAction, getAddItemAction, getDeleteItemAction } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
+
 
 
 // store 的创建
@@ -23,14 +24,18 @@ class TodoList extends Component {
 
     //数据请求
     componentDidMount() {
-        const action = getTodoList()
-        store.dispatch(action)//  因为此刻的store已经集成的thunk的功能,所以支持dispatch一个函数,这个函数会自动执行
+        // redux-thunk
+        // const action = getTodoList()
+        // store.dispatch(action)//  因为此刻的store已经集成的thunk的功能,所以支持dispatch一个函数,这个函数会自动执行
         // axios.get('https://api.github.com/users/octocat/gists').then((res) => {
         //     console.log(res)
         //     const data = res.data
-        //     const action = initListAction(Object.keys(data[0].owner))
+        //     const action = initListAction(Object.keys(data.hotComment))
         //     store.dispatch(action)
         // })
+        
+        const action = getInitList()
+        store.dispatch(action)
         
     }
 
