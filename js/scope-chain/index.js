@@ -33,7 +33,7 @@ var glob = 100
 // }
 // bAO: {
 //     b: undefined 222
-// }a
+// }
 a()
 //找var,function关键字，找到了var提前赋值undefined,如果找到了函数，提前将整个函数体给这个函数名
 
