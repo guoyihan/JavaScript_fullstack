@@ -1,0 +1,47 @@
+/* miniprogram/pages/group/group.wxss */
+image{
+    width: 60rpx;
+    height: 60rpx;
+    margin: 20rpx;
+}
+.list-outer{
+    width: 80%;
+    margin: 40rpx auto;
+    display: flex;
+    background-color: #fff;
+    border-radius: 38rpx;
+    border: 1rpx;
+    flex-direction: column;
+
+}
+.list-outer .list-title{
+    display: flex;
+    padding-bottom: 30rpx;
+    height: 100rpx;
+    width: 100%;
+}
+
+.list-outer .list-title .list-text {
+    font-weight: 570;
+    font-size: 38rpx;
+    text-align: center;
+    height: 50rpx;
+    margin: auto 10rpx;
+}
+.list-outer .list-item {
+    border-top: 1px solid #000;
+    height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.list-outer .list-item .list-item-name{
+    height: 50rpx;
+    margin: auto 10rpx;
+    text-align: center;
+}
+.list-outer .list-item .list-item-other{
+    display: flex;
+}
+.list-outer .list-item .list-item-other .arrow{
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+/* pages/index/index.wxss */
+.container{
+    width: 100%;
+}
+.new-item{
+    width: 80%;
+    margin: 40rpx auto;
+    background-color: #fff;
+    height: 200rpx;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;    
+    padding: 20rpx;
+    box-shadow: 0px 7px 20px #ddd;
+    border-radius: 38rpx;
+}
+image {
+    width: 124rpx;
+    height: 124rpx;
+}
+.right-conner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.right-conner .item-name{
+    margin-right: 14rpx;
+}
+.icon-arrow {
+    text-align: right;
+    padding-left: 13rpx;
+}
+.new-item:hover{
+    box-shadow: none;
+}
