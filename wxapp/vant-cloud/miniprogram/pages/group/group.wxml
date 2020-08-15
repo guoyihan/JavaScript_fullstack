@@ -11,9 +11,9 @@
         <view class="list-item"
             wx:for="{{ groupList }}" 
             wx:key="{{index}}"
-            data-group="{{item}}"
+
             >
-            <view class="list-item-name">{{item.name}}</view>
+            <view class="list-item-nam   ">{{item.name}}</view>
             <view class="list-item-other">
                 <image class="avatar" src="{{ item.createBy.avatarurl}}"/>  
                 <van-icon name="arrow" class="arrow"></van-icon>

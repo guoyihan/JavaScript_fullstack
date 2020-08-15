@@ -1,4 +1,16 @@
 /* miniprogram/pages/group/group.wxss */
+page{
+    height: 100%;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    padding: 40rpx 0;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    overflow-y: auto;    
+    box-sizing: border-box;
+}
 image{
     width: 60rpx;
     height: 60rpx;
@@ -6,11 +18,11 @@ image{
 }
 .list-outer{
     width: 80%;
-    margin: 40rpx auto;
+    margin: 0 auto;
     display: flex;
     background-color: #fff;
     border-radius: 38rpx;
-    border: 1rpx;
+
     flex-direction: column;
 
 }

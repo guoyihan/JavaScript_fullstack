@@ -40,7 +40,7 @@ Page({
         console.log(error)
       }
     })
-    console(grouplist)
+    console(groupList)
   },
 
   /**

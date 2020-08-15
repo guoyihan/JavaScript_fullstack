@@ -23,6 +23,12 @@ exports.main = async (event, context) => {
       })
       .get()
     if (listItem.data.length > 0) {
+      const userInfo = await db.collection('user').where({
+        openId: listItem.data[0].createBy
+      }).get()
+
+      listItem.data[0].createBy = userInfo.data[0]
+      listItem.data[0].relateUserGroupId = userInfo.data[i]._id
         Result.push(listItem.data[0])
     }
   }
