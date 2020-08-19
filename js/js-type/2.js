@@ -35,6 +35,6 @@ console.log(+{}) //NaN
 // 二元操作符  +
 // val1 + val2  =>   ToPrimitive(val1) + ToPrimitive(val2)
 null + 1   // 1
-[] + []
-[] + {} 
-{} + {}
+// [] + []
+// [] + {} 
+// {} + {}

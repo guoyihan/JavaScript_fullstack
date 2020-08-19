@@ -66,7 +66,7 @@
 
 
 // 对象转布尔值
-// console.log(typeof Boolean(new Boolean(false)))
+// console.log(typeof Boolean(new Boolean(false))
 
 
 // 对象转字符串和数字

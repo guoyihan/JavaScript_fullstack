@@ -5,7 +5,7 @@ const app = new Koa() //定义一个新的koa实例
 
 
 // ctx.request.accepts检查http请求的accept的内容的
-// Accept属于请求头， 代表客户端希望接受的数据类型， 跟Content
+// Accept属于请求头， 代表客户端希望接受的数据类型， 跟Content-type有关
 const main = ctx => {
     if(ctx.request.accepts('xml')){
         ctx.response.type = 'xml'

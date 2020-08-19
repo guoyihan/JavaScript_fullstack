@@ -3,7 +3,7 @@ const Koa = require('Koa')
 const app = new Koa() 
 
 const main = ctx => {
-    // console.log(ctx)page
+    // console.log(ctx)
     // console.log(ctx.request)
     if (ctx.request.url !== '/') {
         ctx.response.type = 'html'
