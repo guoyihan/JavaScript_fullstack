@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var obj = {}  //有原型
+        // var obj1 = new Object()
+
+
+        var obj = {
+            name: 'wn',
+            age: 18
+        }
+        var obj1 = Object.create(obj)  // 接受参数为原型  obj1.__proto__ == obj
+
+
+
+        // 网易面试题
+        // 所有对象最终都会继承自 Object.prototype ?
+        var obj2 = Object.create(null)
+        // obj2.name = 'wn'
+
+        obj2.__proto__ = {
+            name: 'wn'
+        }
+        obj2.name
+
+        var obj3 = Object.create(obj2)
+        
+    </script>
+</body>
+</html>
