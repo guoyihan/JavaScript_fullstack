@@ -20,3 +20,5 @@ var car1 = new Car('green', 'haonan')
 
 console.log(car)
 console.log(car1)
+
+

@@ -35,7 +35,7 @@ var person = new Person ()
 
 
 // 2.
-// Person.prototype = {    // 把原型重新赋值   改变了内存地址 (浅拷贝) 
+// Person.prototype = {    // 把原型重新赋值   改变了内存地址 (浅拷贝) ,这个对象在新的一个地址里 ,在这里改变name 不影响 protorype之前继承的地址里的name属性
 //     name: 'pipi'
 // }
 // console.log(person.name) //wn
