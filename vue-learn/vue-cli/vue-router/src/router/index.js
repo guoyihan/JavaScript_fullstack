@@ -4,6 +4,9 @@ import Hello from "../components/HelloWorld.vue";
 import Hi from "../components/Hi.vue";
 import Hi1 from "../components/Hi1.vue";
 import Hi2 from "../components/Hi2.vue";
+import Error from "../components/Error.vue";
+
+
 
 Vue.use(Router)
 
@@ -14,6 +17,10 @@ export default new Router({
         path: '/',
         name: 'Hello',
         component: Hello
+    },
+    {
+        path: '*',
+        component: Error
     },
     {
         path: '/hi',
@@ -28,10 +35,26 @@ export default new Router({
             {
                 path: '/hi/hi2',
                 component: Hi2
+            },
+            {
+                path: '/hi/hi3',
+                name: 'hi3',
+                redirect: '/'
             }
+            
         ]
     },
-
+    {
+        path: '/abc',
+        name: '/abc',
+        component: Error,
+        beforeEnter: (to, from,next) => {
+            console.log('我进入了404页面')
+            console.log(to)
+            console.log(from)
+            next()
+        }
+    }
     
   ]
 })

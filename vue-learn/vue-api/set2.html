@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(per,index) in person" :key="index"> {{per}} </li>
+        </ul>
+        <button @click="add">添加</button>
+    </div>
+
+
+    <script>
+        var outData = {
+            person: ['aa', 'cc', 'ss']
+        }
+        function adds() {
+            // outData.count++
+            // app.person[2] = 'pp'
+            Vue.set(app.person, 2, 'pp')
+            // Vue.set(outData, 'count', 3)
+        }
+        let app = new Vue ({
+            el: '#app',
+            data: outData,
+            methods: {
+                add() {
+                    adds()
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>
