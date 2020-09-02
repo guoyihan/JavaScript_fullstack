@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <!-- 组件 -->
     <router-view/>
   </div>
@@ -25,6 +25,7 @@ export default {
         id: this.seller.id
       }).then((seller) => {
         console.log(seller);
+        Object.assign(this.seller, seller)
       });
     },
   },
