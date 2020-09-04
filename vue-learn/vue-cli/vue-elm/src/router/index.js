@@ -1,9 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+
 Vue.use(VueRouter);
 
-const routes = [];
+const routes = [
+  {
+    path: '/',
+    name: "Goods",
+    component: () => import('@/views/goods/goods.vue')
+  },
+  {
+    path: '/comment',
+    name: "Comnent",
+    component: () => import('@/views/comment/comment.vue')
+  },
+  {
+    path: '/seller',
+    name: "Seller",
+    component: () => import('@/views/seller/seller.vue')
+  }
+];
 
 const router = new VueRouter({
   mode: 'history',

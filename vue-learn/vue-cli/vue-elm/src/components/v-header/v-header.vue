@@ -60,7 +60,7 @@ export default {
 
     setTimeout(() => {
       this.sellinfo = this.seller
-      console.log(this.sellinfo)
+      // console.log(this.sellinfo)
     }, 1000)
   },
   components: {
