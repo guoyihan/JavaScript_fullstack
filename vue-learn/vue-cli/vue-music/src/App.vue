@@ -5,21 +5,28 @@
       <span slot="content">My Music</span>
       <i class="iconfont" slot="right-icon" >&#xe617;</i>
     </v-header>
-    <!-- <router-view/> -->
+    <v-tab></v-tab>
+
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
 
 
     <!-- menu -->
     <v-sidebar></v-sidebar>
+
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
 import Sidebar from '@/components/Sidebar.vue'
+import Tab from '@/components/Tab.vue'
 export default {
   components: {
     'v-header': Header,
-    'v-sidebar': Sidebar
+    'v-sidebar': Sidebar,
+    'v-tab': Tab
   }
 }
 </script>
@@ -27,12 +34,12 @@ export default {
 <style lang="stylus">
 @font-face {
   font-family: 'iconfont';  /* project id 2052918 */
-  src: url('//at.alicdn.com/t/font_2052918_dmrta931a34.eot');
-  src: url('//at.alicdn.com/t/font_2052918_dmrta931a34.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2052918_dmrta931a34.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2052918_dmrta931a34.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2052918_dmrta931a34.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2052918_dmrta931a34.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2052918_fibk9pzxjz4.eot');
+  src: url('//at.alicdn.com/t/font_2052918_fibk9pzxjz4.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2052918_fibk9pzxjz4.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2052918_fibk9pzxjz4.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2052918_fibk9pzxjz4.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2052918_fibk9pzxjz4.svg#iconfont') format('svg');
 }
 .iconfont{
   font-family:"iconfont" !important;
