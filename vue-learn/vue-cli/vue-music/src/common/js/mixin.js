@@ -1,6 +1,8 @@
 export const searchMixin = {
     data () {
-        return {}
+        return {
+            query: ''
+        }
     },
     computed: {
 

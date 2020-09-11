@@ -4,28 +4,87 @@
           <v-searchbox @query="onQueryChange"></v-searchbox>
       </div>
       <!-- 热搜 -->
-      <div class="shortcut-wrapper" ref="shortcutWrapper">
-        <v-scroll>
+      <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">
+        <v-scroll class="shortcut" ref="shortcut">
           <div>
-            asdasd
+            <div class="hot-key">
+              <h1 class="title">热门搜索</h1>
+              <ul>
+                <li class="item" v-for="(item, index) in hotKey" :key="index">
+                  <span>{{item.first}}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="search-history"  v-show="searchHistory.length">
+              <h1 class="title">
+                <span class="text">搜索历史</span>
+                <span class="clear" @click="clearSearchHistory" >
+                  <i class="iconfont">&#xe602;</i>
+                </span>
+              </h1>
+              <!-- 搜索历史列表 -->
+              <v-searchlist :searches="searchHistory" @delete="deleteSearchHistory"></v-searchlist>
+            </div>
           </div>
         </v-scroll>
+      </div>
+      <!-- 搜索结果列表 -->
+      <div class="search-result" ref="searchResult" v-show="query">
+        <v-searchresult :query="query" @select="saveSearch"></v-searchresult>
       </div>
   </div>
 </template>
 
 <script>
-import Search from '@/components/SearchBox'
+import SearchBox from '@/components/SearchBox'
+import SearchList from '@/components/SearchList'
 import Scroll from '@/components/Scroll'
+import SearchResult from '@/components/SearchResult'
+import api from '../api/index'
+import { mapGetters, mapActions } from 'vuex'
 import { searchMixin } from '@/common/js/mixin'
+
 export default {
     components: {
-        'v-searchbox': Search,
+        'v-searchbox': SearchBox,
         'v-scroll': Scroll,
+        'v-searchlist': SearchList,
+        'v-searchresult': SearchResult
     },
     mixins: [searchMixin],
+    data () {
+      return {
+        hotKey: []
+      }
+    },
+    created() {
+      this._getHotKey()
+    },
+    computed: {
+      ...mapGetters(['searchHistory'])
+    },
     methods: {
-        
+      // 获取热门搜索
+      _getHotKey () {  
+        api.HotSearchKey().then((res) => {
+          console.log(res)
+          this.hotKey = res.result.hots.slice(0,10)
+        })
+      },
+      saveSearch() {
+        // 保存历史记录
+        this.saveSearchBar(this.query)
+      },
+      ...mapActions(['deleteSearchHistory', 'clearSearchHistory','saveSearchBar'])
+    },
+    watch: {
+      query(newQuery) {
+        if (newQuery) {
+          setTimeout(() => {
+            this.$refs.shortcut.refresh()
+          }, 20)
+        }
+      }
     }
 }
 </script>
