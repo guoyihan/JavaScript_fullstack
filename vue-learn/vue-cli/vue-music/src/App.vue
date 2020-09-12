@@ -11,7 +11,7 @@
       <router-view/>
     </keep-alive>
 
-
+    <v-play></v-play>
     <!-- menu -->
     <v-sidebar></v-sidebar>
 
@@ -22,11 +22,13 @@
 import Header from '@/components/Header.vue'
 import Sidebar from '@/components/Sidebar.vue'
 import Tab from '@/components/Tab.vue'
+import Play from '@/components/Play.vue'
 export default {
   components: {
     'v-header': Header,
     'v-sidebar': Sidebar,
-    'v-tab': Tab
+    'v-tab': Tab,
+    'v-play': Play
   }
 }
 </script>

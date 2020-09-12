@@ -71,11 +71,13 @@ export default {
           this.hotKey = res.result.hots.slice(0,10)
         })
       },
-      saveSearch() {
+      saveSearch(song) {
         // 保存历史记录
         this.saveSearchBar(this.query)
+        //播放音乐
+        this.selectPlaySong(song)
       },
-      ...mapActions(['deleteSearchHistory', 'clearSearchHistory','saveSearchBar'])
+      ...mapActions(['deleteSearchHistory', 'clearSearchHistory','saveSearchBar','selectPlaySong'])
     },
     watch: {
       query(newQuery) {
