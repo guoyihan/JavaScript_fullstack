@@ -8,9 +8,12 @@ let c = Object.create(a)
 
 
 function create( object ) {
-    if (typeof obj != 'object') {throw TypeError}
-    function Ctor() {}
-    Ctor.prototype = obj
-    let o = new Ctor()
-    return o
+    // if (typeof obj != 'object') {
+    //     throw TypeError
+    // }
+    
+    // let obj = object
+    // obj.__proto__ = object
+    // return obj
+    return { __proto__: object}
 }
