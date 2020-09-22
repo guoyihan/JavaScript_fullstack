@@ -29,6 +29,7 @@ Page({
         // 3.this.data.images []
         const images = []
         let idx = 0
+        console.log(res.tempFilePaths)
         const tempFilePaths = res.tempFilePaths
         for (let filePath of tempFilePaths) {
           let tmpFileName = (+ new Date() + Math.floor(Math.random()*1000)).toString() + '.png'

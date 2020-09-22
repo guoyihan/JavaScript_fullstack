@@ -22,7 +22,7 @@ App({
       success(settingRes) {
         //已经授权
         if(settingRes.authSetting['scope.userInfo']) {
-          wx.wx.getUserInfo({
+          wx.getUserInfo({
             success: (infoRes) => {
               self.globalData.UserInfo = infoRes.UserInfo
               wx.cloud.callFunction({
