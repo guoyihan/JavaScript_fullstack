@@ -1,31 +1,30 @@
 <template>
   <div class="vcWrap">
-      <input v-for="n in len" :key="'codeInput' + n" :ref="'codeInput'+ n" v-model.trim.number="code[n-1]" @keydown="onKeydown(n)" @keyup="onKeyup(n)">
+    <input v-for="n in len" :key="'codeInput' + n" :ref="'codeInput' + n" v-model.trim.number="code[n-1]" @keydown="onkeydown(n)" @keyup="onkeyup(n)">
   </div>
 </template>
 
 <script>
 export default {
-    name: 'EtVerifyCode',
-    props: ['length'],
-    data() {
-        return {
-            len: this.length || 4,
-            code: new Array(this.len),
-            keyCodes: [
-                48, 49, 50, 51, 52, 53, 54, 55, 56, 57 , 96, 97, 98, 99, 100, 101, 102, 103, 104, 105
-            ]
-        }
-    },
-    methods: {
-        onKeydown(n) {
-            console.log(n)
-        },
-        onKeyup(n){
-            console.log(n)
-
-        }
+  name: 'EtVerifyCode',
+  props: ['length'],
+  data() {
+    return {
+      len: this.length || 4,
+      code: new Array(this.len),
+      keyCodes: [
+        48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105,
+      ]
     }
+  },
+  methods: {
+    onkeydown(n) {
+      console.log(n)
+    },
+    onkeyup(n) {
+      console.log(n)
+    }
+  }
 }
 </script>
 

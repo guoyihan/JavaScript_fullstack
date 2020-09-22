@@ -832,12 +832,12 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
 var es_function_name = __webpack_require__("b0c0");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"491a2624-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/et-verify-code.vue?vue&type=template&id=e798fa44&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vcWrap"},_vm._l((_vm.len),function(n){return _c('input',{directives:[{name:"model",rawName:"v-model.trim.number",value:(_vm.code[n-1]),expression:"code[n-1]",modifiers:{"trim":true,"number":true}}],key:'codeInput' + n,ref:'codeInput'+ n,refInFor:true,domProps:{"value":(_vm.code[n-1])},on:{"keydown":function($event){return _vm.onKeydown(n)},"keyup":function($event){return _vm.onKeyup(n)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.code, n-1, _vm._n($event.target.value.trim()))},"blur":function($event){return _vm.$forceUpdate()}}})}),0)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b2874b76-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/et-verify-code.vue?vue&type=template&id=2e247a9c&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vcWrap"},_vm._l((_vm.len),function(n){return _c('input',{directives:[{name:"model",rawName:"v-model.trim.number",value:(_vm.code[n-1]),expression:"code[n-1]",modifiers:{"trim":true,"number":true}}],key:'codeInput' + n,ref:'codeInput' + n,refInFor:true,domProps:{"value":(_vm.code[n-1])},on:{"keydown":function($event){return _vm.onkeydown(n)},"keyup":function($event){return _vm.onkeyup(n)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.code, n-1, _vm._n($event.target.value.trim()))},"blur":function($event){return _vm.$forceUpdate()}}})}),0)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/et-verify-code.vue?vue&type=template&id=e798fa44&
+// CONCATENATED MODULE: ./src/et-verify-code.vue?vue&type=template&id=2e247a9c&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/et-verify-code.vue?vue&type=script&lang=js&
 //
@@ -857,10 +857,10 @@ var staticRenderFns = []
     };
   },
   methods: {
-    onKeydown: function onKeydown(n) {
+    onkeydown: function onkeydown(n) {
       console.log(n);
     },
-    onKeyup: function onKeyup(n) {
+    onkeyup: function onkeyup(n) {
       console.log(n);
     }
   }
