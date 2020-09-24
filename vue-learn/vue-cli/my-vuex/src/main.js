@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import EtVerifyCode from 'et-verify-code'
+import store from './store'
 
-
-Vue.use(EtVerifyCode)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  store,
+  render: function (h) { return h(App) }
 }).$mount('#app')
