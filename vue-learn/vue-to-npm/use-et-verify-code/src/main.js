@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import EtVerifyCode from 'et-verify-code'
+import GyhVerifyCode from 'gyh-verify-code'
 
 
-Vue.use(EtVerifyCode)
+Vue.use(GyhVerifyCode)
 Vue.config.productionTip = false
 
 new Vue({

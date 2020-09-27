@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <et-verify-code></et-verify-code>
+    <gyh-verify-code></gyh-verify-code>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 export default {
   name: 'App',
   components: {
-    EtVerifyCode: "et-verify-code"
+    
   }
 }
 </script>

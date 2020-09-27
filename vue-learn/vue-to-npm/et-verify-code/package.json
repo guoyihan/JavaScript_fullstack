@@ -1,18 +1,18 @@
 {
-  "name": "et-verify-code",
-  "version": "0.1.0",
-  "main": "lib/et-verify-code.umd.min.js",
-  "author": "wn",
+  "name": "gyh-verify-code",
+  "version": "0.1.1",
+  "main": "lib/gyh-verify-code.umd.min.js",
+  "author": "gyh",
   "keywords": [
     "vue",
     "verify-code",
-    "et-verify-code"
+    "gyh-verify-code"
   ],
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name et-verify-code --dest lib ./src/main.js",
+    "lib": "vue-cli-service build --target lib --name gyh-verify-code --dest lib ./src/main.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
