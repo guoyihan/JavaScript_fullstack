@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div id="title">123</div>
+    </div>
+
+
+    <script>
+        // 1.
+        // let node = document.getElementById('app')
+        // node.addEventListener(
+        //     'click', 
+        //     (event) => {
+        //         console.log('冒泡');
+        //     },
+        //     false
+        // )
+        // node.addEventListener(
+        //     'click', 
+        //     (event) => {
+        //         console.log('捕获');
+        //     },
+        //     true
+        // )
+
+        let node = document.getElementById('app')
+        let title = document.getElementById('title')
+        node.addEventListener(
+            'click', 
+            (event) => {
+                console.log('app');
+            },
+        )
+        title.addEventListener(
+            'click', 
+            (event) => {
+                event.stopPropagation()
+                console.log('title');
+            },
+        )
+    </script>
+</body>
+</html>
