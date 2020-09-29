@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 50%">
+        <div style="width: 50%;">Hello World</div>
+    </div>
+    <script>
+        let app = document.getElementById('app')
+        app.style.left = '10px'
+        app.style.top = '10px'
+        app.style.width = '20px'
+        app.style.height = '20px'
+        // 优化
+        // 1.先display none 在修改style 在display block
+        // 2.添加类名
+        // 3.app.style.cssText='top: 10px'
+    </script>
+</body>
+</html>
