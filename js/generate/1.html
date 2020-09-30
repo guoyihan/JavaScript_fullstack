@@ -1,0 +1,60 @@
+<!-- 协程 纤程 
+    进程 线程 纤程
+-->
+
+<script>
+    // function foo () {
+    //     return new Promise((resolve) => {
+    //         resolve(1)
+    //     })
+    // }
+    // function * gen (){
+
+    //     let a = yield foo();
+    //     console.log(1, a);
+    //     let b = yield 2;
+    //     console.log(2, b);
+
+    // }
+
+    // function aa (){
+    //     console.log(1);
+    //     console.log(2);
+    // }
+
+    // aa()  //全部执行完
+
+    // let it = gen()
+    // console.log(it.next('AAA'))  
+    // console.log(it.next('BBB'))    // 告诉上一个yield返回什么东西
+    // console.log(it.next('CCC'))
+
+    
+    function sleep (t) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(t)
+            }, t)
+        })
+    }
+
+    function * run () {
+        let a= yield sleep(1000)
+        console.log(1)
+        let b= yield sleep(2000)
+        console.log(2)
+
+    }
+    // TJ Co
+    function runGenerate(it) {
+        let { value, done } = it.next()
+        if (done) return
+        else {
+            value.then (() => {
+                runGenerate(it)
+            })
+        }
+    }
+    let it = run()
+    runGenerate(it)
+</script>
