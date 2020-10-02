@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
     data () {
         return {
@@ -64,6 +65,7 @@ export default {
         }
     },
     methods: {
+        ...mapActions['setUserInfo'],
         handleQuestion() {
 
         },
@@ -76,17 +78,30 @@ export default {
                 return
             }
             if (this.isLogin) { // login
-                this.showLoginTip()
+                this.showLoginTip('登录中...')
                 this.login()
             } else { // register
-
+              if (this.rePassword !== this.password) {
+                this.$toast.fail('两次密码不一致')
+                return
+              }
+              this.showLoginTip('注册中...')
+              this.$http.register({
+                account: this.account,
+                password: this.password
+              })
+              .then(res => {
+                this.$toast.clear()
+                this.setUserInfo(res.data)
+                this.$router.push('/home')
+              })
             }
         },
 
 
-        showLoginTip() {
+        showLoginTip(status) {
             this.$toast.loading({
-                message: '登录中...',
+                message: status,
                 forbidClick: true,
                 loadingType: "spinner",
                 duration: 0
@@ -101,9 +116,10 @@ export default {
                 password: this.password
             })
             .then((res) => {
-                this.$toast.clear()
-                console.log(res)
+              // console.log(res)
                 //存数据
+                this.$toast.clear()
+                this.setUserInfo(res.data)
                 this.$router.push('/home')
             })
         }
