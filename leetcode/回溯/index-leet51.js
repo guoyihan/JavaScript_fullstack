@@ -1,0 +1,34 @@
+var solveNQueens = function (n) {
+    let result = [];
+    function backtrack(tmpPath = []) {
+      if (tmpPath.length === n) {
+        // console.log(tmpPath.slice(0));
+        // [1,0,3,2]
+        // .Q..
+        let res = tmpPath.slice(0).map((col) => {
+          // splice(i, , 'Q')
+          return '.'.repeat(col) + 'Q' + '.'.repeat(n - col - 1);
+        })
+        result.push(res);
+      }
+      // tmpPath = [1,2,3,4,5]
+      for (let col = 0; col < n; col ++) {
+        // 不能选的位置过滤掉
+        // 对象线(x, y) (row, col)    公式:  abs(row - x) === abs(col - y)
+        let flag = tmpPath.some((colIndex, rowIndex) => {
+          return rowIndex - tmpPath.length === colIndex - col || 
+          Math.abs(rowIndex - tmpPath.length) === Math.abs(colIndex - col) ||
+          colIndex === col;  // 同列
+        })
+        // 如果在 tmpPath（已经选过的皇后的位置里面）找到 满足上面这个公式的
+        // 说明 这列不能选
+        if (flag) continue;
+        tmpPath.push(col);
+        backtrack(tmpPath);
+        tmpPath.pop();
+      }
+    }
+    backtrack([]);
+    return result;
+  }
+  console.log(solveNQueens(8));
