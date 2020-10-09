@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- axios xhr fetch 请求 -->
+    <!-- script 天然支持跨域请求 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/0.10.0/vue.js"></script>
+    <!-- script 引入 js 的
+    /api 返回的不是js
+     -->
+    <script>
+        function foo(data) {
+            console.log('接受道后端返回的数据:', data);
+        }
+    </script>
+    <script src="http://127.0.0.1:8088/api"></script>
+</body>
+</html>
