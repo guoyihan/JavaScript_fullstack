@@ -1,0 +1,44 @@
+<script>
+    function Animal() {
+        this.name = "animal";
+        this.say = function () {
+            console.log(this.name);
+        }
+    }
+    Animal.prototype.look = function () {
+        console.log("Animal look");
+    };
+    function Dog() {
+        //    ***  Animal.call(this)   // 继承父类的属性
+        this.name = "dog";
+    }
+    //继承 父类的方法
+    // Animal.prototype.__proto__ = Object.prototy    
+    // Dog.prototype.__proto__ = Animal.prototype
+
+    Dog.prototype = Object.create(Animal.prototype);
+    var dog = new Dog();
+    //写出输出内容
+    dog.look();
+    //写出输出内容
+    dog.say();
+
+    let a = {}
+    // a.__proto__ == Object.prototype
+    let b = new Object()
+    // b.__proto__ == Object.prototype
+    let c = Object.create(null)
+
+
+
+
+    Object.prototype.a = 'Object';
+    Function.prototype.a = 'Function';
+    function Person() { };
+    var child = new Person();
+    console.log(Person.a);
+    console.log(child.a);
+    console.log(child.__proto__.__proto__.constructor.constructor.constructor);
+
+
+</script>

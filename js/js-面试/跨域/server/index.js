@@ -1,11 +1,12 @@
 const http = require('http');
-
+const qs = require('querystring')
 http.createServer((req, res) => {
     if (req.url.includes('/api')) {
         let json = {
             code: 0
         }
-        res.end(`foo(${JSON.stringify(json)})`) //end 只接受字符串,buffer的类型参数
+        let fn = qs.parse(req.url.split('?')[1]).callback
+        res.end(`${fn}(${JSON.stringify(json)})`) //end 只接受字符串,buffer的类型参数
     } else {
         res.end('')
     }

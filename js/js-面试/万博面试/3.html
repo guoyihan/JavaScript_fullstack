@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>666</li>
+    </div>
+    <div id="app"></div>
+   <script>
+       const con = document.querySelector('.container')
+       let li = document.querySelectorAll('li')
+    //    let li = document.getElementsByTagName('li')  //动态的 living collection
+       // 一个dom节点同时属于一个父节点
+       for (let i = li.length-1; i >= 0 ; i --) {
+        con.appendChild(li[i])
+       }
+       document.querySelector('#app'.appendChild(li[0]))
+   </script>
+</body>
+</html>
