@@ -1,0 +1,34 @@
+<!-- 
+DomA.style.width = DomA.offsetWidth + 1 + 'px'
+DomB.style.width = DomA.offsetWidth + 1 + 'px'
+DomC.style.width = DomA.offsetWidth + 1 + 'px'
+会触发几次回流 ? 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="doma"></div>
+    <div id="domb"></div>
+    <div id="domc"></div>
+    <script>
+        const DomA = document.getElementById('doma')
+        const DomB = document.getElementById('domb')
+        const DomC = document.getElementById('domc')
+        function timer () {
+            DomA.style.width = DomA.offsetWidth + 1 + 'px'
+            DomB.style.width = DomA.offsetWidth + 1 + 'px'
+            DomC.style.width = DomA.offsetWidth + 1 + 'px'
+
+           
+        }
+        setTimeout(() => {
+                timer()
+            }, 2000)
+    </script>
+</body>
+</html>

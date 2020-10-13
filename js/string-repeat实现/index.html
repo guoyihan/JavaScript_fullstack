@@ -1,0 +1,27 @@
+<!-- // repeat 实现，使用JS实现一个repeat方法，
+// 调用这个 repeatedFunc("hellworld")，
+// 会alert4次 helloworld, 每次间隔3秒
+// function repeat(func, times, wait) {
+
+// }
+// const repeatFunc = repeat(alert, 4, 3000)
+// repeatedFunc("hellworld") 
+高阶函数
+-->
+
+
+
+<script>
+    function  repeat (func, times, wait) {
+    return function (str){
+        for (let i = 0; i < times; i++) {
+            setTimeout(() => {
+                func(str)
+            }, i * wait)
+        }
+        
+    }
+}
+const repeatFunc = repeat(alert, 4, 3000)
+repeatFunc("hello")
+</script>

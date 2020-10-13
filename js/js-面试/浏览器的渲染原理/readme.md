@@ -68,7 +68,12 @@ html,css   读取到js,都会暂停DOM树的构建(单线程)
 
 
 
-# 减少回流和重绘
+# 减少回流(重排)和重绘
+
+- 读写分离
+将offsetTop、offsetLeft、offsetWidth、offsetHeight等用一个变量来保存,避免多次实时调用
+
+
 
 修改单一DOM：
 1. cssText
