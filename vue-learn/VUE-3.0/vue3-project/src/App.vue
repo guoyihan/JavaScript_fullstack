@@ -9,48 +9,66 @@
         :style="{ lineHeight: '64px' }"
       >
         <a-menu-item key="/">
-            <router-link to="/">首页</router-link>
+          <router-link to="/">首页</router-link>
         </a-menu-item>
         <a-menu-item key="/plan">
-            <router-link to="/plan">计划</router-link>
+          <router-link to="/plan">计划</router-link>
         </a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content style="padding: 0 50px">
       <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
-        <router-view></router-view>
+        <a-row>
+          <a-col :span="6">
+            <a-card title="Default size card" style="width: 300px">
+              <template v-slot:extra><a href="#">more</a></template>
+              <p>计划总时间: {{allTime}}</p>
+            </a-card>
+          </a-col>
+          <a-col :span="16" :offset="2">
+            <router-view></router-view>
+          </a-col>
+        </a-row>
       </div>
     </a-layout-content>
     <a-layout-footer style="text-align: center">
-      {{count}}
+      {{ count }}
     </a-layout-footer>
   </a-layout>
 </template>
 <script>
-import { reactive, toRefs, watch, computed} from 'vue'
-import { useRoute } from 'vue-router'
+import { reactive, toRefs, watch, computed } from "vue";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 export default {
-    setup(props, context) { // 入口函数, 默认只执行一次, 里面没有this 拿不到vue实例
-        const route = useRoute()
-        const state = reactive({
-            count: 0
-        })
-        const selectedKeys = computed(() => {
-            return [route.path]
-        })
-         
-        watch(() => route.path, (newVal) => {
-            state.selectedKeys = [newVal]
-        }, { immediate : true})
-        return {
-            // selectedKeys: state.selectedKeys
-            // count: state.count
-            ...toRefs(state),
-            selectedKeys
+  setup(props, context) {
+    // 入口函数, 默认只执行一次, 里面没有this 拿不到vue实例
+    const route = useRoute();
+    const store = useStore();
+    const state = reactive({
+      count: 0,
+      selectedKeys: computed(() => {
+        return [route.path];
+      }),
+      allTime: store.getters.allTime,
+    });
+    // const selectedKeys = computed(() => {
+    //     return [route.path]
+    // })
 
-        }
-    }
-  
+    watch(
+      () => route.path,
+      (newVal) => {
+        state.selectedKeys = [newVal];
+      },
+      { immediate: true }
+    );
+    return {
+      // selectedKeys: state.selectedKeys
+      // count: state.count
+      ...toRefs(state),
+    };
+  },
 };
 </script>
 <style>
