@@ -9,7 +9,18 @@
     <!-- axios jquery 都是由底层的 XMLhttprequest 封装 -->
     <!-- fetch -->
     <script>
-        fetch('http://localhost:9090/api')
+        // 简单请求
+        // 非简单请求: 以OPTIONS 请求方式发出预检(prelight)请求  看是否允许跨域?
+        // 简单请求(可以以原生 form 的形式)  vs  非简单请求(fetch xml)
+        // 
+        let header = new Headers()
+        header.set('Content-Type', 'application/json')
+        header.set('X-custom', 'XXXXX')
+        fetch('http://localhost:9090/api', {
+            headers: header,
+            data: JSON.stringify({a: 1}),
+            method: 'POST'
+        })
         .then(res => res.json())
         .then(r => {
             console.log(r)

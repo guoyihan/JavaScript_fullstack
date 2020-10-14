@@ -31,3 +31,8 @@ name=xxx
 ------分隔符--------
 pwd=xxx
 ------分隔符--------
+
+
+
+用在响应的时候 
+content-type: image/jpeg  image/png  text/html   text/javascript
