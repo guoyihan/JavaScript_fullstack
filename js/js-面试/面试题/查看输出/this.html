@@ -1,0 +1,64 @@
+<script>
+// 1.
+//     var a = function () {
+//      this.b =3;
+// }
+// var c = new a();
+// a.prototype.b = 9;
+// var b = 7;
+// a(); //在全局调用, 所以b是全局的b
+
+// console.log(b);  // 3
+// console.log(c.b);   //3 
+
+
+
+// 2.
+function B() {
+    console.log(this.c) // 2  先执行log,所以会找原型上的值
+    this.c = 1
+}
+B.prototype.c = 2
+let bb = new B()
+
+// this 指向哪里 要看他在哪里调用
+// 1.默认指向window
+// 2.对象.xxx()
+// 3.apply/call/bind
+// 4.new
+
+
+function sum(a, b) {return a+b}
+sum.apply({}, [10,20])
+let sum10 = sum.bind({}, 10) // 1.绑定 this  2. 预先传递参数 类似柯里化
+sum10(20) // a + b
+
+
+
+//3.
+let obj = {
+    fn: function () {
+        // window
+        console.log(this);
+    }
+}
+
+let func = obj.fn
+func()
+
+
+
+//4.
+window.data = 5;
+   var foo = {
+    data: 6,
+    click: function() {
+     console.log(this.data);
+    }
+   };
+ 
+div.addEventListener('click', foo.click); // this 指向 div
+ 
+var bar = foo.click;
+bar();   // this 指向 window
+</script>

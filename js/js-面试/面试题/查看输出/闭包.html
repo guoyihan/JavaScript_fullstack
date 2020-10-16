@@ -1,0 +1,44 @@
+<script>
+    // 1.
+    // function makea() {
+    //     let flag = false
+    //     return function() {
+    //         let res = flag ? 2 : 1
+    //         flag = !flag
+    //         return res
+    //     }
+    // }
+    // let a = makea()
+    // console.log(a());
+
+
+    // 2.
+    // 实现一个 getPrime
+    function makePrime() {
+        let num = 1
+        function isPrime(v) { 
+            let res = []
+            for (let i = 1; i <= v; i++) {
+                if (num % i == 0) {
+                    res.push[i]
+                }
+                
+            };
+            return res.length === 2 && res[0] === 1&& res[1] === v;
+        }
+        return function (num) {
+            num ++
+            while (!isPrime(num)) {
+                num ++
+            }
+            return num
+        }
+    }
+    let getPrime = makePrime()
+    getPrime() //2
+    getPrime() //3
+    getPrime() //5
+
+
+
+</script>
