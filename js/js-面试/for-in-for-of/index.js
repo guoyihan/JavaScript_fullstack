@@ -55,3 +55,38 @@ let bar = new Foo()
 for (let key in bar) {
     console.log(`index:${key} value:${bar[key]}`)
 }
+
+
+
+
+// 用for of  实现遍历对象
+let obj = {
+    a: 1, 
+    b: 2,
+    [Symbol.iterator]: () => {  //无参数的函数, 返回值必须是一个符合迭代器协议的对象, 迭代器协议里面必须有一个next属性
+        // 详情见:  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols
+        // es6 generate
+        let keys = Object.keys(obj)
+        return {
+            next() {
+                for (let i = 0; i <keys.length; i++) {
+                    if (i === keys.length - 1) {
+                        return {
+                            done: true,
+                            value: obj[key[i]]
+                        }
+                    }
+                    return {
+                        done: false,
+                        value: obj[key[i]]
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+for (item of obj) {
+    
+}

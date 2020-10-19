@@ -9,6 +9,7 @@
 # for..of
 1.  不能遍历对象
 2.  返回的是数据结构的值/元素
-
+3.  遍历可迭代对象(迭代器)
 # Symbol.iterator(迭代器)
 - 数组, Map, Set, String, arguments(参数)对象, Nodelist对象
+- 要有@@iterator方法
