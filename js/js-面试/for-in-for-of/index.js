@@ -37,24 +37,24 @@
 
 
 // 对象中的常规属性和排序属性
-function Foo() {
-    this[100] = 'test-100'
-    this[1] = 'test-1'
-    this['b'] = 'bar-B'
-    this[50] = 'test-50'
-    this[9] = 'test-9'
-    this[8] = 'test-8'
-    this[3] = 'test-3'
-    this[5] = 'test-5'
-    this['A'] = 'bar-A'
-    this['C'] = 'bar-C'
-    this['c'] = 'bar-c'
-}
+// function Foo() {
+//     this[100] = 'test-100'
+//     this[1] = 'test-1'
+//     this['b'] = 'bar-B'
+//     this[50] = 'test-50'
+//     this[9] = 'test-9'
+//     this[8] = 'test-8'
+//     this[3] = 'test-3'
+//     this[5] = 'test-5'
+//     this['A'] = 'bar-A'
+//     this['C'] = 'bar-C'
+//     this['c'] = 'bar-c'
+// }
 
-let bar = new Foo()
-for (let key in bar) {
-    console.log(`index:${key} value:${bar[key]}`)
-}
+// let bar = new Foo()
+// for (let key in bar) {
+//     console.log(`index:${key} value:${bar[key]}`)
+// }
 
 
 
@@ -69,24 +69,22 @@ let obj = {
         let keys = Object.keys(obj)
         return {
             next() {
-                for (let i = 0; i <keys.length; i++) {
-                    if (i === keys.length - 1) {
-                        return {
-                            done: true,
-                            value: obj[key[i]]
-                        }
-                    }
+                if(keys.length === 0) {
                     return {
-                        done: false,
-                        value: obj[key[i]]
+                        done: true,
+                        value: undefined
                     }
                 }
-                
+                let k = keys.shift ()
+                return {
+                    done: false,
+                    value: obj[k]
+                }
             }
         }
     }
 }
 
 for (item of obj) {
-    
+    console.log(item);
 }
