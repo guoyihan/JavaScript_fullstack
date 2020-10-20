@@ -6,10 +6,24 @@
             }, t)
         })
     }
-    let arr = [p(1000), p(2000)]
+    // let p4 = Promise.resolve()
+    let p3 = Promise.reject('Error')
+    let arr = [p(1000), p(2000), p3]
     console.time('a')
     Promise.all(arr).then(r => {
         console.timeEnd('a')
         console.log(r)
+    })
+    Promise.allSettled(arr).then(r => {
+        console.log('----', r)
+    })
+    console.time('a1')
+    Promise.race(arr).then(r => {
+        console.timeEnd('a1')
+        console.log(r)
+    })
+    Promise.any(arr).then(r => {
+        console.timeEnd('a1')
+        console.log('sdasd',r)
     })
 </script>
