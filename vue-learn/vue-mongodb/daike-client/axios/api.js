@@ -24,7 +24,10 @@ export default function $axios(options) {
         // 1. 判断请求超时
         if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {
           console.log('请求超时');
-          Toast.fail('请求超时')
+          this.$notify.error({
+            title: '错误',
+            message: '这是一条错误的提示消息'
+          });
         }
         // 2. 需要重定向到错误页面
         const errorInfo = error.response
