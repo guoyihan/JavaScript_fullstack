@@ -10,15 +10,13 @@ export default function (Com) {
             // return h('h3', {}, ['hhhh'])
             // return <h3>ddd</h3>
             return h('div', {
-                on: 
-                {
-                    'touchmove': this.handleMove
-                } ,
-                style: {
-                    position: 'absolute',
-                    left: this.x,
-                    top: this.y
-                }
+                'onTouchmove': this.handleMove,
+
+                style: [
+                    {position: 'absolute'},
+                    {left: this.x + 'px'},
+                    {top: this.y + 'px'}
+            ]
             }, [h(Com)])
         },
         data() {
