@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            a: 'A'
+        }
+        // 有 obj 引用着它  不会被销毁   1
+        let wm = new WeakMap()
+        // let wm = new Map()
+        // wm.set('a','A')
+        wm.set(obj, 'A')   //  这次引用不算数的  垃圾回收不会考虑weakmap里面的key 是否引用外部对象.   2
+        // wm.delete(obj)
+        obj = null
+        console.log(wm); // 不在
+        // 不能枚举
+
+        function foo() {
+            let obj2 = {}
+            wm.set(obj2, 'B')
+        }
+        foo()
+        console.log(wm);
+
+
+
+        let mp = new Map()
+        map.set('2', 2)  
+        map.set('1', 2)  
+        let obj  = {}
+        obj['2'] = 2
+        obj['1'] = 1
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .w3c {
+            box-sizing: content-box; /* 标准 */
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            padding: 2px;
+        }
+        .ie {
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+        .wrap {
+            display: flex;
+            width: 100px;
+        }
+        .w1 {
+            width: 50px;
+            background-color: red;
+        }
+        .w2{
+            flex: 1 0 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3c">W3C</div>
+    <div class="ie">IE</div>
+    <div class="wrap">
+        <div class="w1">1</div>
+        <div class="w2">2</div>
+    </div>
+</body>
+</html>

@@ -9,6 +9,10 @@
 # Event-loop
 同步代码
 异步代码  - 微任务(microtask)  - 宏任务(macrotask)
+1. window-event-loop  最常遇到的
+2. worker-event-loop  前端里面,  有web-worker(另外一个线程)
+3. worklet-event-loop  代码跑在worklet里面
+
 
 
 
