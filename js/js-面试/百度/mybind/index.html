@@ -1,14 +1,27 @@
 <script>
     Function.prototype.myBind = function(THIS, ...arg1) {
-        let fn = this //谁调用这个 bind
-        return function(...arg2) {
+        let fn = this //谁调用这个 bind    1.
+        function T(...arg2) {
             // ...
-            return fn.call(THIS, ...arg1, ...arg2)
+            // this instanceof T 判断是否被new 第二次改变了作用域   3.
+            return fn.call(this instanceof T ? this :THIS, ...arg1, ...arg2)    
         }
+        T.prototype = fn.prototype   // 保存原型 2.
+        return T
     }
     function sum(a, b, c) {
         return a + b + c
     }
     let sum10 = sum.myBind(null, 10)
     console.log(sum10(20,30));
+
+    
+    // new改变作用域的优先级比bind高
+    // let obj = {}
+    // function a () {
+    //     this.abc = 1
+    // }
+    // let b = a.bind(obj)
+    // b() // obj{abc: 1}
+    // let c = new b() 
 </script>
