@@ -20,12 +20,6 @@ Function.prototype.myBind = function (context) {
              
         )
     }
-     
-    
-    
-    
-    
-    
     context = context || window 
 
     // 将调用call函数的对象添加到context属性中 
