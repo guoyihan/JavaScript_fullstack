@@ -4,7 +4,7 @@ Function.prototype.mybind = function() {}
   this.name = name;
   this.color = color;
  }
- Animal.prototype.say = function () {
+ Animal.prototype.say = function () { 
   return `I'm a ${this.color} ${this.name}`;
  };
  const Cat = Animal.mybind(null, 'cat');

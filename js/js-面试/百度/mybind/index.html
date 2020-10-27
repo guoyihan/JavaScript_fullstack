@@ -1,0 +1,14 @@
+<script>
+    Function.prototype.myBind = function(THIS, ...arg1) {
+        let fn = this //谁调用这个 bind
+        return function(...arg2) {
+            // ...
+            return fn.call(THIS, ...arg1, ...arg2)
+        }
+    }
+    function sum(a, b, c) {
+        return a + b + c
+    }
+    let sum10 = sum.myBind(null, 10)
+    console.log(sum10(20,30));
+</script>
