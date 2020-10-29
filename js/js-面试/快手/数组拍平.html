@@ -1,0 +1,19 @@
+<script>
+    let a = [1, 2, 3, [4, [5, [6]]]]
+    function flat1(arr,num) {
+        let res = []
+        function walk(myarr) {
+            for (let i = 0; i < myarr.length; i++) {
+                if (Array.isArray(myarr[i]) && num > 0) {
+                    num--
+                    walk(myarr[i])
+                } else {
+                    res.push(myarr[i])
+                }
+            }
+        }
+        walk(arr)
+        return res
+    }
+    console.log(flat1(a,1));
+</script>

@@ -1,0 +1,21 @@
+<script>
+    // 用reduce实现 map
+    Array.prototype.mymap  = function(fn) {
+        return this.reduce((pre,next) => {
+            pre.push(fn(next))
+            return pre
+        },[])
+        
+    }
+    console.log([1,2,3].mymap(x => x + 1));
+
+
+    // function  mp  (arr,fn) {
+    //     let res = []
+    //     return arr.reduce((res,num) => {
+    //         res.push(fn(num))
+    //         return res
+    //     },res)
+    // }
+    // console.log(mp([1, 2, 3], x => x + 1));
+</script>

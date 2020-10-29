@@ -1,0 +1,28 @@
+<script>
+
+    // instanceOf 会查询左边的原型直到跟右边的prototype匹配
+    function instanceOf(obj, Constructor) {
+        let proto = obj.__proto__
+        while (proto !== Constructor.prototype) {
+            if (proto === null) {
+                return false
+            }
+            proto = proto.__proto__
+        }
+
+        return true
+    }
+
+
+
+    // 元编程: 修改自定义 语言默认行为
+    // 一个不能用 for-of 遍历, Symbol.iterator
+    // 修改instanceof行为, Symbol.hasInstance
+    class MyArray {
+        static [Symbol.hasInstance](instance) {
+            return Array.isArray(instance)
+        }
+    }
+    console.log([] instanceof MyArray); // true
+
+</script>
