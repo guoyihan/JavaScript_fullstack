@@ -1,0 +1,17 @@
+<script>
+    function parseQs(url) {
+        const i = url.indexOf('?');
+        if (i === -1) return {};
+        let qs = url.slice(i + 1);
+        let arr = qs.split('&');
+        console.log(arr);  // reduce
+        return arr.reduce((pre, next) => {
+            //next: xxx=xxx
+            let kv = next.split('=')
+            let k = kv[0], v = kv[1]
+            pre[k] = v 
+            return pre             
+        },{})
+    }
+    parseQs(testURL);
+</script>
