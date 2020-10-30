@@ -20,7 +20,7 @@ httpOnly 只在http环境下传输, js无法操作访问 (减少XSS攻击)
 secure https下传输
 SameSite strict/none/Lax  规定浏览器不能再跨域请求中携带cookie  用来防止 CSRF 攻击和用户追踪。 http://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html
 
-
+ 
 
 # 什么是ServiceWorker
 运行在浏览器背后的独立线程, 一般用来实现缓存的功能, 传输协议必须是https

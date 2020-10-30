@@ -6,4 +6,7 @@
 4. 
 
 
-组件: fragment teleport suspense
+组件: 
+fragment  template不在需要根节点
+teleport 可以指定dom节点的插入              
+suspense 更好的实现异步组件 (菊花图)
