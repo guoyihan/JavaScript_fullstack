@@ -46,7 +46,7 @@ function myNew(fun) {
 
 
 
-function myNew() {
+function myNew(arguments) {
     // 创建一个实例对象
     let obj = {}
     // 取到外部 传进来的构造器

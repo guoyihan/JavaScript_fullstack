@@ -6,10 +6,10 @@ function SubType () {
     SuperType.call(this)
 }
 
-let instance = new SubType()
+let instance1 = new SubType()
 
-instacne1.colors.push('pink')
-console.log(instacne1.colors)
+instance1.colors.push('pink')
+console.log(instance1.colors)
 
 let instance2  = new SubType()
-console.log(instance2.color);
+console.log(instance2.colors);
