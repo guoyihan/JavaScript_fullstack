@@ -1,16 +1,16 @@
 <template>
   <div class="movie-box">
-    <van-image class="cover-image" radius="5px" :src="movie.image">
+    <van-image class="cover-image" radius="5px" :src="movie.img">
       <template v-slot:error>
         <img
           class="cover-image"
-          src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2452075545.jpg"
+          src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604470682578&di=d54f9d6ec8540206f9c6436efaac05bb&imgtype=0&src=http%3A%2F%2Fwx1.sinaimg.cn%2Fmw690%2F006LkWGbly1gjzly4jhx5j33344mo4qs.jpg"
           alt=""
         />
       </template>
     </van-image>
-    <div class="title">{{ movie.title }}</div>
-    <Star :rating="movie.rating" />
+    <div class="title">{{ movie.nm }}</div>
+    <Star :scope="movie.sc" />
   </div>
 </template>
 
