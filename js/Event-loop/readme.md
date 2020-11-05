@@ -17,7 +17,7 @@
 
 
 微任务: process.nextTick, promise, MutationObserver(观察DOM结构变化的接口)
-宏任务: script,setTimeout,setInterval,setImmediate,I/O, UI rendeing
+宏任务: script,setTimeout,setInterval,setImmediate,I/O, UI rendeing , 事件回调
 
 
 # EventLoop执行顺序:
