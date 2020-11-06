@@ -18,7 +18,7 @@ function setAttr(node, key, value) {
         case 'value': //node 是input或者textarea
             if (node.tagName.toUpperCase() === 'INPUT' || node.tagName.toUpperCase() === 'TEXTAREA') {
                 node.value = value
-            } else {
+        } else {
                 node.setAttribute(key, value)
             }
         break;

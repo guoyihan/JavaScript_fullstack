@@ -1,8 +1,18 @@
 import { createElement,render,renderDom } from './element'
+import diff from './diff'
 let vertualDom1 = createElement('ul',{class: 'list'}, [
     createElement('li',{class: 'item'},['1']),
     createElement('li',{class: 'item'},['2'])
 ])
+let vertualDom2 = createElement('ul',{class: 'list-group',id: 'list'}, [
+    createElement('li',{class: 'item'},['1']),
+    createElement('li',{class: 'item'},['2']),
+    createElement('li',{class: 'item'},['3'])
+])
+
+
+let patches = diff(vertualDom1, vertualDom2)  //补丁
+console.log(patches)
 
 let el = render(vertualDom1)
 
