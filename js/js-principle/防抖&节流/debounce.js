@@ -1,5 +1,7 @@
 // 在规定的时间内未触发,则执行
 
+const { fchown } = require("fs")
+
 //若在一定的时间内,再次执行,则取消上次的操作,只进行本次的操作
 function debounce (func, delay) {
     // 利用闭包保存定时器
@@ -12,5 +14,9 @@ function debounce (func, delay) {
         }, delay)
     }
 } 
+
+
+
+
 
 

@@ -17,3 +17,18 @@
     }
     console.log(flat1(a,1));
 </script>
+
+<script>
+    function flat (a) {
+        let stack = [...a], res=[]
+        while(stack.length) {
+            let item =  stack.pop()
+            if(Array.isArray(item)) {
+                stack.push(...item)
+            } else {
+                res.unshift(item)
+            }
+        }
+        return res
+    }
+</script>
