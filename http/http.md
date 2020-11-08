@@ -22,7 +22,7 @@ GET 和 POST区别:
     307 temporary redirect，临时重定向，和302含义类似，但 是期望客户端保持请求方法不变向新的地址发出请求
 - 4XX 客户端错误
     400 bad request，请求报文存在语法错误
-    401 unauthorized，表示发送的请求需要有通过 HTTP 认证 的认证信息
+    401 unauthorized，表示发送的请求需要有通过 HTTP 认证 的认证信息                                                                                                                                                                                                                                                                                                               
     403 forbidden，表示对请求资源的访问被服务器拒绝
     404 not found，表示在服务器上没有找到请求的资源
 - 5XX 服务器错误
