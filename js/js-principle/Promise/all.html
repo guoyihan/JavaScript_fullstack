@@ -1,0 +1,20 @@
+<script>
+    Promise.myAll = function(promiseArr) {
+        return new promise((resolve, reject) => {
+            let res = [], count = 0
+            for (let i = 0; i < promiseArr.length; i++) {
+                // i 原来数组里面的顺序
+                promiseArr[i].then((r) =>{
+                    // 最终成功的时候 顺序
+                    res[i] = r
+                    count ++
+                    if (count === promiseArr.length) {
+                        resolve(res)
+                    }
+                }).catch(() =>{
+                    reject()
+                })
+            }
+        })
+    }
+</script>
