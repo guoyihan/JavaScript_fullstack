@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            overflow: hidden;
+        }
+        .left {
+            width: 40px;
+            background-color: blue;
+            display: inline-block;
+            /* float: left; */
+        }
+        .right{
+            /* calc css里卖弄为数不多的一个函数 计算 */
+            width: calc(100% - 40px);
+            background-color: green;
+            display: inline-block;
+            /* float: left; */
+        }
+    </style>
+</head>
+<body>
+    <!-- 左边固定 右边自适应 -->
+    <div class="wrap">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div>下面</div>
+</body>
+</html>
