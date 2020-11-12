@@ -5,4 +5,4 @@
 
 
 响应: etag    请求:if-none-match
-响应: last-modified    请求:if-modifi-since
+响应: last-modified    请求:if-modified-since

@@ -1,0 +1,45 @@
+<script>
+// 实现emmiter订阅发布者模式
+// class Emit{
+//     on() {}
+//     off() {}
+//     emit() {}
+// }
+
+// // 调用代码
+// let em = new Emit();
+// em.on('a', (param) => {console.log('a: '  +  param )});
+// em.emit('a', '我的名字');
+// // 控制台输出:  a: 我的名字
+class Emit {
+    constructor () {
+        this.listener = {
+            'a': []
+        }
+    }
+    on (name, cb) {
+        if (this.listener[name] === undefined) {
+            this.listener[name] = []
+        }
+        this.listener[name].push({
+            cb: cb
+        })
+    }
+    off (name,cb) {
+        delete this.listener[name].cb
+    }
+    emit (name, params) {
+        for (let task of this.listener[name]) {
+            task.cb(params)
+        }
+    }
+}
+
+let em = new Emit();
+em.on('a', (param) => {console.log('a: '  +  param )});
+em.emit('a', '我的名字');
+em.delete('a', cb);
+em.emit('a', '我的名字');
+
+
+</script>
