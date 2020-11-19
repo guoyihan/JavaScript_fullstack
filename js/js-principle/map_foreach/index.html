@@ -13,6 +13,20 @@
 </script>
 
 
+<script>
+    Array.prototype.map = function (func) {
+        let arr = this
+        let len = arr.length
+        let newA = []
+        for (let i = 0; i < len ; i ++) {
+            let num = arr[i]
+            newA.push(func(num, i, arr))
+        }
+        return newA
+    }
+</script>
+
+
 <!-- .map(fn(n))
 
 fn(n) {

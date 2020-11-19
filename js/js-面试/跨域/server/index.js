@@ -5,6 +5,7 @@ http.createServer((req, res) => {
         let json = {
             code: 0
         }
+        console.log(req.url)
         let fn = qs.parse(req.url.split('?')[1]).callback
         res.end(`${fn}(${JSON.stringify(json)})`) //end 只接受字符串,buffer的类型参数
     } else {

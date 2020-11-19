@@ -4,7 +4,7 @@ cookie(4kb)   localStore(5mb)   sessionStorage(5mb)    indexedDB(无限)
 
 每次携带在      
 Header中,         不参与             不参与                  不参与
-影响请求性能
+影响请求性能s
 
 
 
