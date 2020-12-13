@@ -24,8 +24,8 @@ new Queue()
             return this
         }
         start() {
-            t = 0
-            for(let task of this.tasks) {
+            let t = 0
+            for(let task of this.tasks) { 
                 t += task.time
                 setTimeout(() => {
                     task.cb()

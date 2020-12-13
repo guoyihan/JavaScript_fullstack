@@ -1,0 +1,18 @@
+<script>
+    function walk(url) {
+        // const i  = url.indexOf('?');
+        // if (i === -1) return {};
+        // let qs = url.slice(i + 1);
+        let string1 = url.split('?')[1]
+        console.log(string1)
+        let string2 = string1.split('&')
+        let res = {}
+        for (let item of string2) {
+            let a = item.split('=')[0]
+            let b = item.split('=')[1]
+            res[a] = b
+        }
+        return res
+    }
+    console.log(walk('?a=1&b=2'))
+</script>

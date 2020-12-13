@@ -1,0 +1,91 @@
+<script>
+    // 1. 字符串相加
+    function stringadd (str1, str2) {
+        while (str1.length > str2.length) {
+            str2 = '0' + str2
+        }
+        while (str2.length > str1.length) { 
+            str1 = '0' + str1
+        }
+        let res = ''
+        let carry = 0
+        let sum 
+        for (let i = str1.length - 1; i >= 0; i--) {
+            sum = +str1[i] + +str2[i] + carry
+            res = (sum % 10) + res
+            carry = sum > 9? 1 : 0
+        }
+        return carry == 1? '1' + res : res
+    }
+    // console.log(stringadd('1235', '23'))
+
+    // 2. 拍平
+    function flatten (arr) {
+        let newA = [...arr] , res = []
+        while (newA.length) {
+            let item = newA.pop()
+            if (Array.isArray(item)) {
+                newA.push(...item)
+            } else {
+                res.unshift(item)
+            }
+        }
+        return res
+    }
+
+    // 3.1 非原地快排
+    function quickSort(arr) {
+        if (arr.length <= 1) return arr
+        let arr1 = [], arr2 = []
+        let num = arr[0]
+        for (let i = 1; i< arr.length; i++) {
+            if (arr[i] < num) {
+                arr1.push(arr[i])
+            } else {
+                arr2.push(arr[i])
+            }
+        }
+        let res = [...quickSort(arr1),num,...quickSort(arr2)]
+        return res
+    }
+    console.log(quickSort([63,52,734,34,47,4,78,357,9]))
+
+
+    // 3.2 原地快排
+    function quickSort_New (ary, left, right) {
+        if(left >= right) {
+            return ary;
+        }
+
+        var i = left,
+             j = right;
+             base = ary[left];
+
+        while (i < j) {
+            // 从右边起，寻找比基数小的数
+            while (i<j && ary[j] >= base) {
+                j--;
+            }
+
+            // 从左边起，寻找比基数大的数
+            while (i<j && ary[i] <= base) {
+                i++
+            } 
+
+            if (i<j) {
+                [ary[i],ary[j]] = [ary[j],ary[i]]
+            }
+        }
+
+        ary[left] = ary[i];
+        ary[i] = base;
+
+        quickSort_New(ary, left, i-1);
+        quickSort_New(ary, i+1, right);
+
+        return ary;
+    }
+    console.log(quickSort_New([63,52,734,34,47,4,78,357,9],0,8))
+
+
+</script>
